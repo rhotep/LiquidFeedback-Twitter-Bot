@@ -136,96 +136,12 @@ $bots['be'] = array(
 			),
 );
 
-//************the test bot (@lqpptest)
+/************
 
-$bots['test'] = array(		
-			"lf"		=> 	array(		//LiquidFeedback details
-				"base_dir"	=> 	"http://www.public-software-group.org/liquid_feedback_testing",	
-				"api_key" 	=> 	"",
-			),				
+Add as many bots as you like.
 
-			"twitter"	=>	array(		//Twitter OAuth details
-				"name"				=> "",
-				"consumer_key"		=> "",
-				"consumer_secret"	=> "",
-				"access_key"		=> "",
-				"access_secret"		=> "",
-			),
+$bots['test'] = array(...
+		
+*************/
 
-			"daily_hour"			=>	20,								//Hour of the day when the summary is tweeted
-
-			"daily_tweet"			=>	'Heute in %1$s:',	//Beginning of the daily tweet, keep it short! %1 is replaced by the hashtag. (Single Quotes!)
-
-			"hashtag"	=>	"#lqpptest",	//The hashtag to include in your tweets
-
-			"starting_id"	=>  10,		
-				/*
-					Some rather recent initiative id. earlier initiative will be ignored.
-					The state parameter for the LF-query currently doesn't work. So for some jobs one has to fetch all
-					initiatives, which in some cases may just be too much.
-				*/
-
-			"jobs"		=> 	array(		
-				/*
-					Jobs only work with issues, there is no way to twitter special initiatives on their own.
-					You cannot for example twitter recent changes of an initiative. It would be great if someone
-					added the feature.
-				*/
-				"Neue Schnellverfahren" =>	array(											
-					/*
-						look for issues in phase 'new' with policy 9
-						and send a tweet formatted like $format
-					*/
-					"query"			=> 	"policy_id=2",	
-						/*	
-							all initiatives whose corresponing issue uses policy 9 
-							"Eilverfahren" on test instance
-							watch out: the policy ids vary on different instances!
-						*/															
-					"states" 		=>	array("new", "accepted"), 
-						/*
-							only pick initiatives whose corresponding issue is in phase 'new' or 'accepted', 
-							other examples are 'frozen' or 'voting'
-						*/
-					"format"		=>  'ACHTUNG: Neues Schnellverfahren auf %1$s eröffnet: %2$s',				
-						/*
-							format of the message to be tweeted
-							%1$s is replaced by the hashtag (see above)
-							%2$s is replaced by the shortened link to the initiative
-							make sure to use single quotes here!
-						*/
-				),
-
-				"Neue Verfahren" =>	array(											
-					/*
-						look for any issues in phase 'new' 
-						and send a tweet formatted like $format
-						issues that already have been twittered wont be again.
-					*/
-					"query"			=> 	"min_id=0",	
-						// all initiatives 															
-					"states" 		=>	array("new", "accepted"),
-						// only pick initiatives whose corresponding issue is in phase 'new' or 'discussion'
-
-					"format"		=>  'Neues Verfahren auf %1$s eröffnet: %2$s',				
-						//
-					"dont_retweet"	=> "Neue Schnellverfahren",
-						/*
-							issues already tweeted for job 'Neue Schnellverfahren' will be ignored
-						*/
-				),
-
-				"Abstimmungen"		=> array(
-					/*
-						send a tweet for each issue that is currently voted on
-					*/
-					"query"			=> 	"min_id=0",	
-						//all initiatives 															
-					"states" 		=>	"voting",			
-						//only those in state 'voting' 
-					"format"		=>  'Neue Abstimmung in %1$s gestartet: %2$s',
-						//
-				),
-			),
-);
 ?>
