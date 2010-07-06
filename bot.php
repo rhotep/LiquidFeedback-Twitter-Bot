@@ -264,7 +264,7 @@ function summary_tweet($bot){
 	$min_gap=1*60*60; 							//Minimum gap between two summaries, should be at least 60*60 seconds!
 	
 	$tweet_prefix = sprintf($bot['daily_tweet'], $bot['hashtag']);
-	$tweet="";
+	$tweet = "";
 
 	if(	date("G")==$bot['daily_hour']				//during this hour the bot tries to post a summary
 		and $last_summary < time()-$min_gap){		//as long as the last summary did not occur during $min_gap seconds
@@ -277,17 +277,19 @@ function summary_tweet($bot){
 				}
 				echo "\t$job_label $num\n";
 			}			
-			$tweet[strlen($tweet)-1]=".";
-			echo "\tSending tweet: '$tweet'\n";
-			
-			if($tweet==""){
-				echo "\t\tNothing happend during the last 24 hours. No tweet will be sent.";
-			}elseif(twitter($bot['twitter'], $twitter_prefix." ".$tweet)){
-				echo "\t\tSummary sent.";
+			if($tweet ==""){
+				echo "\tNothing happend during the last 24 hours. No tweet will be sent.";
 			}else{
-				echo "\t\tAborted: unable to send tweet.\n";
-			}				
-							
+				$tweet[strlen($tweet)-1]=".";
+				echo "\tSending tweet: '$tweet'\n";			
+
+				if(twitter($bot['twitter'], $tweet_prefix.$tweet)){
+					echo "\t\tSummary sent.";
+				}else{
+					echo "\t\tAborted: unable to send tweet.\n";
+					return false;
+				}
+			}											
 			$event = array("issue_id" => -1, "initiative_id" => -1, "job" => "summary");
 			log_event($event);			
 	}else{

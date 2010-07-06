@@ -25,12 +25,16 @@ require_once "../tools.php";
 								Source code: <a href="http://github.com/rhotep/LiquidFeedback-Twitter-Bot">http://github.com/rhotep/LiquidFeedback-Twitter-Bot</a>
 							</td>
 							<td class="right">
-								<a href="overview.php">Update bots</a><br/>
+								<a 	onclick="
+										window.update.document.write('loading...'); 
+										window.update.location.href='../update_twitter_bot.php';
+									"
+								>Update bots</a><br/>
 							</td>
 						</tr>
 					</table>
 
-					<iframe src="../update_twitter_bot.php" height="400" width="50%"></iframe>
+					<iframe name="update" src="../update_twitter_bot.php" height="400" width="50%"></iframe>
 
 					<h1>Running bots: </h1>
 
