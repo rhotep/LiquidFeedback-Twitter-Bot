@@ -1,5 +1,7 @@
 body {
 	background: #C0DEED url('images/bg-clouds.png') repeat-x scroll 0 0;
+	font-size:80%;
+	color:#fff;
 }
 
 h1 {
@@ -8,14 +10,19 @@ h1 {
 	font-family:sans-serif;
 	color:#fff;
 	margin-left:0.5em;
+	margin-right:0.5em;
 	margin-bottom:0.5em;
+	vertical-align:baseline;
 }
 
 a {
 	text-decoration:none;
 	color:#fff;
-	font-weight:bold;
-	font-family:sans-serif;
+	font-style:italic;	
+}
+
+a:hover {
+	text-decoration:underline;
 }
 
 table {
@@ -164,10 +171,6 @@ div.switch.minus {
 
 /************* Styles for overview*/
 
-.overview {
-	color:#fff;
-	font-family: monospace;
-}
 
 .overview iframe {
 	border:	2px solid #000;
@@ -184,50 +187,26 @@ div.switch.minus {
 	margin-left:2.5%;
 }
 
-.overview #bots a{
-	float:right;
-	color:#fff;
-	text-decoration:none;
-	font-family:sans-serif;
-	font-weight:bold;
-}
-
-
-.twitter img {
-	float:left !important;
-	margin-right:10px;
-	border:0 none;
-}
-
-.twitter {
+.overview #bots table{
 	width:100%;
-	margin-bottom:10px;
-
+	margin: 1em 0px;
 }
 
-.twitter .content {
-	vertical-align:top;
-	padding:5px;
-	font-size:90%%;
-	color:#fff;
-}
 
-.twitter .content a {	
-	float:none !important;
-	text-decoration:none;
-	color:#fff;
-	font-weight:bold;
-	font-family:sans-serif;
+#header {
 	font-size:90%;
+	width:100%;
+	margin-bottom:1em;
 }
 
-.twitter a.url{
-	font-size:90%% !important;
-	color:#fff !important;	
-	font-family: monospace !important;
+#header .left {
+		text-align:left;
 }
 
-.twitter a.url:hover{
-	text-decoration: underline !important;
+#header .right {
+		text-align:right;
 }
+
+
+
 

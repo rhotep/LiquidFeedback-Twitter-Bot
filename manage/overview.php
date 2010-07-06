@@ -19,9 +19,21 @@ require_once "../tools.php";
 			<tr>
 				<td class="centerleft"></td>
 				<td class="content overview">
+					<table id="header">
+						<tr>
+							<td class="left">
+								Source code: <a href="http://github.com/rhotep/LiquidFeedback-Twitter-Bot">http://github.com/rhotep/LiquidFeedback-Twitter-Bot</a>
+							</td>
+							<td class="right">
+								<a href="overview.php">Update bots</a><br/>
+							</td>
+						</tr>
+					</table>
 
 					<iframe src="../update_twitter_bot.php" height="400" width="50%"></iframe>
-					<h1>Running bots: <a href="overview.php">Update bots</a></h1>
+
+					<h1>Running bots: </h1>
+
 					<div id="bots">
 
 
