@@ -123,24 +123,29 @@ function print_table($table){
  * @returns an array corresponding to the JSON string
  */
 
-function my_json_decode($json){		// found on php.net
+function my_json_decode($json){		// found on php.net (and modified)
     $comment = false;
     $out = '$x=';
    
     for ($i=0; $i<strlen($json); $i++)
     {
-        if (!$comment)
-        {
-            if ($json[$i] == '{')        $out .= ' array(';
-            else if ($json[$i] == '}')    $out .= ')';
+        if (!$comment){
+            if (in_array($json[$i], array('{', '[')))  		$out .= ' array(';
+            else if (in_array($json[$i], array('}', ']')))  $out .= ')';
             else if ($json[$i] == ':')    $out .= '=>';
             else                         $out .= $json[$i];           
-        }
-        else $out .= $json[$i];
+        }else{
+			 $out .= $json[$i];
+		}
         if ($json[$i] == '"' and ($json[$i-1] != "\\" ))    $comment = !$comment;
     }
-   	eval($out . ';');
-	return $x;
+   	if(eval($out . ';')===false){
+		log_this("error: my_json_decode", "$out");		
+		return(array());
+	}else{
+		log_this("success: my_json_decode", $out);
+		return $x;
+	}
 }  
 
 ?>

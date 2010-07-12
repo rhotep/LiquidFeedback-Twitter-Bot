@@ -98,10 +98,10 @@ function get_last_initiative($job_label, $default=0){
 	if($error!=0){
 		log_this("error: tried to get last initiative for job '$job_label'. Dont worry, maybe it's just that there has nothing been logged yet.", mysql_error());
 	}else{
-		log_this("success: retrieved last initiative for job  '$job_label'.", "");
 		if($row=mysql_fetch_row($result)){
 			$out=$row[0];
 		}
+		log_this("success: retrieved last initiative for job  '$job_label'.", $out);
 	}	
 	$out = $out < 0 ? $default: $out;
 	return($out);
