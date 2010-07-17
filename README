@@ -18,4 +18,5 @@ Make sure you enter a starting_id for each bot in config.php.
 If you dont the bot might not be able to cope with all the new initiatives on the first run.
 (I had trouble downloading 300 of those)
 
+Protect the 'log' submenu. There might be data included in the logs not everyone should be able to see.
 
