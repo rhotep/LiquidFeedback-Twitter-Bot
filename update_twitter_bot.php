@@ -8,11 +8,6 @@ ob_start(); 	//start output buffer
 log_this("\_________ update script called", hash('sha256', $_SERVER['REMOTE_ADDR']));		// logs all calls of the update sript
 
 
-// clear_log();	
-
-// print_table(DB_TABLE_LOG);
-
-
 foreach($bots as $name => $bot){	
 	log_this("––––––––––––  processing bot '$name'");
 	echo "** BOT '$name' running \n*****************************\n";
@@ -30,7 +25,7 @@ foreach($bots as $name => $bot){
 	summary_tweet($bot);	//Daily summary.
 	echo "\n\n\n\n";
 
-	//print_table($db_events_table);	// shows all logged events for dubbing
+	//print_table($db_events_table);	// shows all logged events for debugging
 }
 
 log_and_flush(); 		//Log and flush the output buffer for the last time

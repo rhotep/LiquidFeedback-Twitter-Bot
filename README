@@ -1,1 +1,21 @@
 Just enter your MySQL/LF/twitter/bit.ly user data into config.php and everything should work as it is.
+
+You have to register a twitter app on http://dev.twitter.com/apps :
+
+Application type: Client
+Default Access type: Read & Write
+
+You need the following keys for your config.php:
+
+Consumer key
+Consumer secret
+
+Access Token 
+Access Token Secret 
+
+
+Make sure you enter a starting_id for each bot in config.php. 
+If you dont the bot might not be able to cope with all the new initiatives on the first run.
+(I had trouble downloading 300 of those)
+
+
